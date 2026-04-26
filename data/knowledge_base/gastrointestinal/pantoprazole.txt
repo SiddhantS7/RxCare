@@ -1,0 +1,13 @@
+Medicine Name: Pantoprazole
+
+Category: Proton Pump Inhibitor
+
+Uses:
+- Acid reflux
+- Peptic ulcer disease
+
+Standard Dosage:
+- Adults: 40 mg once daily
+
+Warnings:
+- Long-term use may reduce calcium absorption

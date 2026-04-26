@@ -1,0 +1,12 @@
+Medicine Name: Metformin
+
+Category: Antidiabetic
+
+Uses:
+- Type 2 diabetes mellitus
+
+Standard Dosage:
+- Adults: 500–2000 mg daily in divided doses
+
+Warnings:
+- Risk of lactic acidosis

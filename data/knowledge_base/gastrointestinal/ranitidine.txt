@@ -1,0 +1,12 @@
+Medicine Name: Ranitidine
+
+Category: H2 Receptor Blocker
+
+Uses:
+- Acid-related disorders
+
+Standard Dosage:
+- Adults: 150 mg twice daily
+
+Warnings:
+- Use alternatives where recommended

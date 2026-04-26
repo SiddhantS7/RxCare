@@ -1,0 +1,12 @@
+Medicine Name: Amlodipine
+
+Category: Antihypertensive
+
+Uses:
+- Hypertension
+
+Standard Dosage:
+- Adults: 5–10 mg once daily
+
+Warnings:
+- May cause ankle swelling

@@ -1,0 +1,12 @@
+Medicine Name: Atorvastatin
+
+Category: Statin
+
+Uses:
+- High cholesterol
+
+Standard Dosage:
+- Adults: 10–40 mg daily
+
+Warnings:
+- Monitor liver enzymes

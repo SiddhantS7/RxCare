@@ -1,0 +1,12 @@
+Medicine Name: Oral Rehydration Salts (ORS)
+
+Category: Electrolyte solution
+
+Uses:
+- Dehydration
+
+Standard Dosage:
+- As per standard ORS guidelines
+
+Warnings:
+- Use clean drinking water

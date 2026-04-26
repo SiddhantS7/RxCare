@@ -1,0 +1,17 @@
+Medicine Name: Cetirizine
+
+Category: Antihistamine
+
+Uses:
+- Allergic rhinitis
+- Urticaria
+
+Standard Dosage:
+- Adults: 10 mg once daily
+- Children: 5 mg once daily
+
+Age Suitability:
+- Adults and children over 2 years
+
+Warnings:
+- May cause drowsiness

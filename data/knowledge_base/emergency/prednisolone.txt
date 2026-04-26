@@ -1,0 +1,13 @@
+Medicine Name: Prednisolone
+
+Category: Corticosteroid
+
+Uses:
+- Inflammation
+- Autoimmune conditions
+
+Standard Dosage:
+- Varies based on condition
+
+Warnings:
+- Long-term use causes immunosuppression

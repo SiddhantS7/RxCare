@@ -1,0 +1,13 @@
+Medicine Name: Salbutamol
+
+Category: Bronchodilator
+
+Uses:
+- Asthma
+- Bronchospasm
+
+Standard Dosage:
+- Inhalation: As prescribed
+
+Warnings:
+- Overuse may worsen asthma control

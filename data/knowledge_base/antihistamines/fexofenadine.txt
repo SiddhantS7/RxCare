@@ -1,0 +1,15 @@
+Medicine Name: Fexofenadine
+
+Category: Antihistamine
+
+Uses:
+- Allergic rhinitis
+
+Standard Dosage:
+- Adults: 120–180 mg once daily
+
+Age Suitability:
+- Adults and children over 6 years
+
+Warnings:
+- Avoid fruit juice with dose

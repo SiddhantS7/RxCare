@@ -1,0 +1,20 @@
+Medicine Name: Doxycycline
+
+Category: Antibiotic (Tetracycline)
+
+Uses:
+- Acne
+- Respiratory infections
+
+Standard Dosage:
+- Adults: 100 mg once or twice daily
+
+Age Suitability:
+- Adults only
+
+Contraindications:
+- Children under 8
+- Pregnancy
+
+Warnings:
+- Photosensitivity

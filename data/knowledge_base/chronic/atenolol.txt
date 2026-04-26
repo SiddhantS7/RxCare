@@ -1,0 +1,13 @@
+Medicine Name: Atenolol
+
+Category: Beta-blocker
+
+Uses:
+- Hypertension
+- Angina
+
+Standard Dosage:
+- Adults: 25–100 mg daily
+
+Warnings:
+- Avoid abrupt discontinuation

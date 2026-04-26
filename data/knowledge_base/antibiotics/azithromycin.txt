@@ -1,0 +1,20 @@
+Medicine Name: Azithromycin
+
+Category: Antibiotic (Macrolide)
+
+Uses:
+- Respiratory infections
+- Skin infections
+
+Standard Dosage:
+- Adults: 500 mg once daily for 3 days
+- Children: Weight-based dosing
+
+Age Suitability:
+- Adults and children
+
+Contraindications:
+- Liver disease
+
+Warnings:
+- May cause QT prolongation

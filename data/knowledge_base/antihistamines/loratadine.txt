@@ -1,0 +1,15 @@
+Medicine Name: Loratadine
+
+Category: Antihistamine
+
+Uses:
+- Allergy symptoms
+
+Standard Dosage:
+- Adults: 10 mg once daily
+
+Age Suitability:
+- Adults and children over 2 years
+
+Warnings:
+- Non-drowsy in most patients

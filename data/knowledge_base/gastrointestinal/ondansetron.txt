@@ -1,0 +1,13 @@
+Medicine Name: Ondansetron
+
+Category: Antiemetic
+
+Uses:
+- Nausea
+- Vomiting
+
+Standard Dosage:
+- Adults: 4–8 mg as needed
+
+Warnings:
+- May cause QT prolongation

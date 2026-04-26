@@ -1,0 +1,20 @@
+Medicine Name: Ciprofloxacin
+
+Category: Antibiotic (Fluoroquinolone)
+
+Uses:
+- Urinary tract infections
+- Gastrointestinal infections
+
+Standard Dosage:
+- Adults: 250–500 mg every 12 hours
+
+Age Suitability:
+- Adults only
+
+Contraindications:
+- Children
+- Tendon disorders
+
+Warnings:
+- Risk of tendon rupture

@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+pytesseract
+easyocr
+opencv-python-headless
+numpy
+pandas
+scikit-learn
+sentence-transformers
+faiss-cpu==1.7.4
+python-multipart
+rapidfuzz
+torch
+torchvision

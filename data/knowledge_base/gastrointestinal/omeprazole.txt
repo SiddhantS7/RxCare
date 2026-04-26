@@ -1,0 +1,13 @@
+Medicine Name: Omeprazole
+
+Category: Proton Pump Inhibitor
+
+Uses:
+- GERD
+- Gastric ulcers
+
+Standard Dosage:
+- Adults: 20–40 mg once daily
+
+Warnings:
+- Long-term use requires monitoring
