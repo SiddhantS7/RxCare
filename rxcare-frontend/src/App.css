@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* animated glow */
+body::before {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #3b82f6, transparent);
+  top: -200px;
+  left: -200px;
+  filter: blur(120px);
+  animation: float 8s infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #9333ea, transparent);
+  bottom: -200px;
+  right: -200px;
+  filter: blur(120px);
+  animation: float 10s infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translate(0,0); }
+  to { transform: translate(50px, 50px); }
+}
+
+/* layout */
+.app {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* header */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  color: #94a3b8;
+}
+
+/* upload */
+.upload-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.upload-card input {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.upload-card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #38bdf8, #9333ea);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-card button:hover {
+  transform: scale(1.05);
+}
+
+/* results */
+.results {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* AI blocks */
+.ai-block {
+  background: rgba(255,255,255,0.04);
+  border-left: 4px solid #38bdf8;
+  padding: 20px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+.ai-block:hover {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.ai-block h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #e2e8f0;
+}
+
+/* raw text */
+.raw-box {
+  margin-top: 10px;
+  padding: 15px;
+  background: #020617;
+  color: #22c55e;
+  border-radius: 10px;
+  font-family: monospace;
+  line-height: 1.5;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* confidence */
+.confidence {
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+/* medicine cards */
+.medicine-card {
+  background: rgba(255,255,255,0.06);
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.medicine-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.meta {
+  margin-top: 8px;
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  color: #cbd5f5;
+}

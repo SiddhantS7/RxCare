@@ -6,6 +6,9 @@ import re
 def normalize_ocr_text(text: str) -> str:
     text = text.lower()
 
+    # 🔥 FIX 1: handle OCR symbol noise
+    text = text.replace("|", "i")
+
     replacements = {
         " mo": " mg",
         "m0": "mg",
@@ -41,7 +44,8 @@ STOPWORDS = {
 INVALID_WORDS = {
     "mbbs", "consultant", "clinic",
     "mumbai", "physician", "general",
-    "dispense", "solution", "refills"
+    "dispense", "solution", "refills",
+    "verma", "sharma", "gupta", "kumar", "singh"
 }
 
 TIMING_WORDS = {
@@ -84,11 +88,11 @@ def extract_medicine_info(text, known_medicines=None):
     try:
         text = normalize_ocr_text(text)
 
-        # Restore structure
+        # 🔥 FIX 2: DO NOT split on "daily"
         text = re.sub(r'(\d+\s*[_\-\.]?\s*tab)', r'\n\1', text)
         text = re.sub(r'(tab\s+[a-z])', r'\n\1', text)
         text = re.sub(r'(\d+\s*mg)', r'\1\n', text)
-        text = re.sub(r'(once|twice|thrice|daily|before|after)', r'\n\1', text)
+        text = re.sub(r'(once|twice|thrice|before|after)', r'\n\1', text)
 
         medicines = []
         lines = text.split("\n")
@@ -103,7 +107,6 @@ def extract_medicine_info(text, known_medicines=None):
             if len(line_clean) < 3:
                 continue
 
-            # ORS special case
             if "ors" in line_lower:
                 medicines.append({
                     "medicine": "ORS",
@@ -112,12 +115,7 @@ def extract_medicine_info(text, known_medicines=None):
                 })
                 continue
 
-            # Context
-            context = line_lower
-            if i + 1 < len(lines):
-                context += " " + lines[i + 1].lower()
-            if i + 2 < len(lines):
-                context += " " + lines[i + 2].lower()
+            context = " ".join(lines[i: min(len(lines), i + 5)]).lower()
 
             if "patient" in context:
                 continue
@@ -136,7 +134,7 @@ def extract_medicine_info(text, known_medicines=None):
             )
 
             match2 = re.search(
-                r'([a-z]{4,})\s+\d{1,4}',
+                r'([a-z]{4,})\s*(\d{1,4})',
                 context
             )
 
@@ -146,20 +144,20 @@ def extract_medicine_info(text, known_medicines=None):
             elif match2:
                 candidate = match2.group(1)
 
-                if candidate in TIMING_WORDS:
-                    continue
-
                 if candidate not in STOPWORDS:
                     name = candidate
+
+            # 🔥 FIX 3: fallback name detection
+            if not name:
+                for w in context.split():
+                    if w.isalpha() and len(w) > 4 and w not in STOPWORDS:
+                        name = w
+                        break
 
             if not name:
                 continue
 
-            if (
-                name in STOPWORDS
-                or name in INVALID_WORDS
-                or name in TIMING_WORDS
-            ):
+            if name in INVALID_WORDS or name in TIMING_WORDS:
                 continue
 
             name = correct_medicine_name(name)
@@ -183,41 +181,27 @@ def extract_medicine_info(text, known_medicines=None):
                 if tsp_match:
                     dosage = f"{tsp_match.group(1)} tsp"
 
-            # ---------------------------
-            # 🔥 TIMING (FINAL FIX)
+                        # ---------------------------
+            # 🔥 TIMING (FINAL FINAL FINAL FIX)
             # ---------------------------
             timing = None
 
-            # LOCAL window per medicine
-            local_window = " ".join(lines[max(0, i-2): min(len(lines), i + 6)])
+            # use full context instead of broken lines
+            full_context = context.lower()
 
-            # 🔥 ADD THIS (IMPORTANT)
-            if i + 1 < len(lines):
-               local_window += " " + lines[i + 1].lower()
-
-            clean_text = re.sub(r'[^a-zA-Z]', ' ', local_window.lower())
-            words = clean_text.split()
-            joined = " ".join(words)
-
-            if "once" in words:
-                timing = "once daily"
-            elif "twice" in words:
-                timing = "twice daily"
-            elif "thrice" in words:
+            if "thrice" in full_context:
                 timing = "thrice daily"
-            elif "daily" in words:
+            elif "twice" in full_context:
+                timing = "twice daily"
+            elif "once" in full_context:
                 timing = "once daily"
-            elif "before breakfast" in joined:
-                timing = "before breakfast"
-            elif "before" in words:
-                timing = "before food"
-            elif "after" in words:
-                timing = "after food"
-            elif "night" in words:
+            elif "at night" in full_context or "night" in full_context:
                 timing = "at night"
-            elif "morning" in words:
-                timing = "in morning"
-            elif "needed" in words:
+            elif "before" in full_context:
+                timing = "before food"
+            elif "after" in full_context:
+                timing = "after food"
+            elif "needed" in full_context:
                 timing = "as needed"
 
             medicines.append({
@@ -225,7 +209,6 @@ def extract_medicine_info(text, known_medicines=None):
                 "dosage": dosage,
                 "timing": timing
             })
-
         # Remove duplicates
         unique = {}
         for med in medicines:

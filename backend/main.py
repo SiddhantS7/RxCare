@@ -1,12 +1,24 @@
-import warnings
-warnings.filterwarnings("ignore")
 from fastapi import FastAPI
-from backend.api.prescription import router as prescription_router
+from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="RxCare API")
+# ✅ FIRST create app
+app = FastAPI()
+
+# ✅ THEN add middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ✅ THEN import routers
+from backend.api.prescription import router as prescription_router
 
 app.include_router(prescription_router)
 
+# optional test route
 @app.get("/")
 def root():
-    return {"status": "RxCare backend running"}
+    return {"message": "RxCare API running"}
